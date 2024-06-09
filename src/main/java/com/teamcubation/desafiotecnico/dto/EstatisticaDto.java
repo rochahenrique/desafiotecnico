@@ -1,8 +1,6 @@
 package com.teamcubation.desafiotecnico.dto;
 
-public class EstatisticaDto {
-
-    public class EstatiscticaDto{
+    public class EstatisticaDto{
         private long count;
         private double sum;
         private double avg;
@@ -10,7 +8,7 @@ public class EstatisticaDto {
         private double max;
 
 
-        public EstatiscticaDto(long count, double sum, double avg, double min, double max) {
+        public EstatisticaDto(long count, double sum, double avg, double min, double max) {
             this.count = count;
             this.sum = sum;
             this.avg = avg;
@@ -38,4 +36,4 @@ public class EstatisticaDto {
             return max;
         }
     }
-}
+
