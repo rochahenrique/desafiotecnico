@@ -15,5 +15,9 @@ public class TransacaoRepository {
         transacoes.add(transacao);
     }
 
+    public synchronized void limparTransacoes(){
+        transacoes.clear();
+    }
+
 
 }

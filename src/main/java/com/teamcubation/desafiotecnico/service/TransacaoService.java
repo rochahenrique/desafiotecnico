@@ -21,4 +21,8 @@ public class TransacaoService {
         transacaoRepository.adicionarTransacao(transacao);
         return true;
     }
+
+    public void limparTransacoes(){
+        transacaoRepository.limparTransacoes();
+    }
 }
