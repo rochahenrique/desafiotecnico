@@ -13,14 +13,17 @@ public class TransacaoRepository {
 
     private List<Transacao> transacoes = new ArrayList<>();
 
+    //adiciona uma transação a lista de transações, método sincronizado para que somente adicionado uma transação por vez na lista.
     public synchronized void adicionarTransacao(Transacao transacao){
         transacoes.add(transacao);
     }
 
+    //Limpa todas as transações da lista de transações, método sincronizado para que somente uma lista seja limpa de cada vez.
     public synchronized void limparTransacoes(){
         transacoes.clear();
     }
 
+    //retorna uma lista de transações que ocorreram nos últimos 60 segundos
     public synchronized List<Transacao> encontraTransacaoNosUltimos60Segundos(){
         OffsetDateTime umMinutoAtras = OffsetDateTime.now().minusMinutes(1);
         return transacoes.stream()

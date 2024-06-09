@@ -14,6 +14,7 @@ public class TransacaoController {
     @Autowired
     private TransacaoService transacaoService;
 
+    //Trata solicitações POST, retorna 201 created se for válido ou 422 quando não é válido
     @PostMapping
     public ResponseEntity<Transacao> adicionarTransacao(@RequestBody Transacao transacao){
         boolean adicionada = transacaoService.adicionarTransacao(transacao);
@@ -23,6 +24,7 @@ public class TransacaoController {
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).build();
     }
 
+    //Trata solicitações DELLETE  e retorna 200 OK quando válido
     @DeleteMapping
     public ResponseEntity<Transacao> limparTransacoes(){
         transacaoService.limparTransacoes();

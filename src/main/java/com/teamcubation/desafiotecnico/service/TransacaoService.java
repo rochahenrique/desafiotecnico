@@ -18,6 +18,7 @@ public class TransacaoService {
     @Autowired
     private TransacaoRepository transacaoRepository;
 
+    //adiciona uma transação ao repository, valida a transação se é válida
     public boolean adicionarTransacao(Transacao transacao){
         if (transacao.getValor() < 0 || transacao.getDataHora().isAfter(OffsetDateTime.now())){
             return  false;
@@ -26,10 +27,12 @@ public class TransacaoService {
         return true;
     }
 
+    //limpa todas as transações do repository
     public void limparTransacoes(){
         transacaoRepository.limparTransacoes();
     }
 
+    //calcula estatisticas das transações que ocorrem nos ultimos 60 segundos.
     public EstatisticaDto calcularEstatistica(){
         List<Transacao> transacoes = transacaoRepository.encontraTransacaoNosUltimos60Segundos();
         DoubleSummaryStatistics stats = transacoes.stream()
